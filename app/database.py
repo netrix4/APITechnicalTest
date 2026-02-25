@@ -1,10 +1,11 @@
-# from sqlalchemy import create_client
+import os
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-# URL de la base de datos SQLite
-SQLALCHEMY_DATABASE_URL = "sqlite:///../apiData.db"
+load_dotenv()
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 # El argumento 'check_same_thread' es necesario solo para SQLite
 engine = create_engine(
