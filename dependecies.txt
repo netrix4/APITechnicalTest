@@ -1,2 +1,6 @@
 fastapi[standard]
 SQLAlchemy
+alembic
+python-dotenv
+auth0-python
+python-jose[cryptography]
