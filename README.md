@@ -2,7 +2,7 @@
 
 Documentacion tecnica para prueba tecnica
 
-![alt text](../readme-screenshots/image.png)
+![alt text](image.png)
 
 "/" del api creado en esta prueba tecnica
 
@@ -42,36 +42,36 @@ Se implemento proteccion de rutas mediante los servicios de Auth0 teniendo como 
 
 Esta es la ruta principal del api
 
-![alt text](../readme-screenshots/image.png)
+![alt text](image.png)
 
 `/public/products/`
 
 Aqui se listan los productos
 
-![alt text](../readme-screenshots/image-1.png)
+![alt text](image-1.png)
 
 `/public/products/quantity`
 
 Endpoint de agregacion que devuelve la cantidad total de productos
 
-![alt text](../readme-screenshots/image-2.png)
+![alt text](image-2.png)
 
 `/products/{id}`
 
 Endpoint de consulta de un producto por id
 
-![alt text](../readme-screenshots/image-4.png)
+![alt text](image-4.png)
 
 `/get-token/`
 
 Endpoint temporal para poder obtener un token y hacer uso de los endpoint privados
 
-![alt text](../readme-screenshots/image-3.png)
+![alt text](image-3.png)
 
 `/products/` (POST)
 Endpoint para agregar un producto nuevo (enviado en el body), retornando el producto recien argegado
 
-![alt text](../readme-screenshots/image-5.png)
+![alt text](image-5.png)
 
 #### Protegidas
 
@@ -79,32 +79,32 @@ Endpoint para agregar un producto nuevo (enviado en el body), retornando el prod
 
 Endpoint privado para consulta solo con autentificacion previa (Bearer token requerido)
 
-![alt text](../readme-screenshots/image-6.png)
+![alt text](image-6.png)
 
 ## Configuracion de Auth0
 
 Esta fue la configuracion asignada a la aplicacion de Auth0
 
-![alt text](../readme-screenshots/image-7.png)
+![alt text](image-7.png)
 
-![alt text](../readme-screenshots/image-8.png)
+![alt text](image-8.png)
 
-![alt text](../readme-screenshots/image-9.png)
+![alt text](image-9.png)
 
-![alt text](../readme-screenshots/image-10.png)
+![alt text](image-10.png)
 
-![alt text](../readme-screenshots/image-13.png)
+![alt text](image-13.png)
 
-![alt text](../readme-screenshots/image-14.png)
+![alt text](image-14.png)
 
-![alt text](../readme-screenshots/image-15.png)
+![alt text](image-15.png)
 
-![alt text](../readme-screenshots/image-11.png)
+![alt text](image-11.png)
 
-![alt text](../readme-screenshots/image-12.png)
+![alt text](image-12.png)
 
 ## Migracion de Base de Datos
 
 Como se puede ver en las dependencias se implemento Alchemic para migracion de base de datos mapeando modelos con tablas. Resultando en la siguiente evidencia
 
-![alt text](../readme-screenshots/image-16.png)
+![alt text](image-16.png)
