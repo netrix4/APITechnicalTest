@@ -3,7 +3,8 @@ import os
 from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, Base
-import models
+from models import Product
+from DTOs import ProductDTO
 from dotenv import load_dotenv
 from auth import auth_scheme
 import http.client
@@ -23,8 +24,9 @@ def get_db():
         db.close()
 
 @app.post("/products/" )
-def create_product(name: str, description: str, price: float, db: Session = Depends(get_db)):
-    new_product = models.Product(name=name, description=description, price=price)
+def create_product(product: ProductDTO, db: Session = Depends(get_db)):
+# def create_product(name: str, description: str, price: float, db: Session = Depends(get_db)):
+    new_product = Product(name=product.name, description=product.description, price=product.price)
     db.add(new_product)
     db.commit()
     db.refresh(new_product)
@@ -32,15 +34,27 @@ def create_product(name: str, description: str, price: float, db: Session = Depe
 
 @app.get("/products/{product_id}")
 def get_product_by_id(product_id: int, db: Session = Depends(get_db)):
-    product = db.query(models.Product).filter(models.Product.id == product_id).first()
+    product = db.query(Product).filter(Product.id == product_id).first()
     if product is None:
         raise HTTPException(status_code=404, detail="Product not found")
     return product
 
+# Public endpoint
+@app.get("/public/products/quantity")
+def get_products(db: Session = Depends(get_db) ):
+    products = db.query(Product).all()
+    return {'quantity':products.__len__()}
+
+# Public endpoint
+@app.get("/public/products/")
+def get_products(db: Session = Depends(get_db) ):
+    products = db.query(Product).all()
+    return products
+
 # Protected endpoint
 @app.get("/products/")
-def get_products(db: Session = Depends(get_db) ,user: dict = Depends(auth_scheme)):
-    products = db.query(models.Product).all()
+def get_products_private(db: Session = Depends(get_db) ,user: dict = Depends(auth_scheme)):
+    products = db.query(Product).all()
     return products
 
 @app.get("/get-token/")
